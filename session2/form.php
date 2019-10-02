@@ -2,7 +2,6 @@
 <?php 
 	if (isset($_POST['register'])) {
 		//
-		echo "<br>Show post<br>";
 		echo $_POST['name'];
 		echo "<br>";
 		echo $_POST['email'];
