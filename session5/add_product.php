@@ -18,7 +18,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="page-top">
@@ -31,7 +31,13 @@
   <?php 
     if(isset($_POST['add_product'])) {
       $title = $_POST['title'];
-      $sql = "INSERT INTO products(title) VALUES ('$title')";
+      $image = 'product_image_default.png';
+      $image_file = $_FILES['image'];
+      if ($image_file['error'] == 0) {
+        $image = $image_file['name'];
+        move_uploaded_file($image_file['tmp_name'], 'upload/'.$image);
+      }
+      $sql = "INSERT INTO products(title, image) VALUES ('$title', '$image')";
       if (mysqli_query($connect, $sql) === TRUE) {
         header("Location: list_product.php");
       }
@@ -113,7 +119,7 @@
                       <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Create a product!</h1>
                       </div>
-                      <form class="user" action="#" method="POST">
+                      <form class="user" action="#" method="POST" enctype='multipart/form-data'>
                         <div class="form-group">
                           <input type="text" class="form-control form-control-user" name="title" placeholder="Product name">
                         </div>

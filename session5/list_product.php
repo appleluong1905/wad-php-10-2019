@@ -18,7 +18,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="page-top">
@@ -111,7 +111,7 @@
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Position</th>
+                      <th>Image</th>
                       <th>Office</th>
                       <th>Age</th>
                       <th>Start date</th>
@@ -133,7 +133,7 @@
                   	<?php while($row = $result->fetch_assoc()){?>
 	                    <tr>
 	                      <td><?php echo $row['title']?></td>
-	                      <td>System Architect</td>
+	                      <td><img src="<?php echo 'upload/'.$row['image']?>" class='default'></td>
 	                      <td>Edinburgh</td>
 	                      <td>61</td>
 	                      <td>2011/04/25</td>
