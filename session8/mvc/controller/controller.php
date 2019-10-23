@@ -19,6 +19,13 @@
 				case 'contact':
 					include 'view/contact.php';
 					break;
+				case 'add_product':
+					if (isset($_POST['add_product'])) {
+						$title = $_POST['title'];
+						echo $title;
+					}
+					include 'view/add_product.php';
+					break;	
 				default:
 					include 'view/home.php';
 					break;
