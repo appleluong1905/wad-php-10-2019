@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "none", "lendy_11");
+$conn = mysqli_connect("localhost", "root", "none", "lendy_17");
 
 function checkExist($wallet, $conn) {
     $sql = "SELECT * FROM codengon_user_wallet_random WHERE wallet = '$wallet'";
@@ -21,7 +21,7 @@ if (isset($_POST["import"])) {
             $wallet = $column['0'];
             if (checkExist($wallet, $conn) == 0) {
                 $sqlInsert = "INSERT into codengon_user_wallet_random (type,wallet,status)
-                       values (1,'$wallet',0)";
+                       values (3,'$wallet',0)";
                 $result = mysqli_query($conn, $sqlInsert);
                 
                 if (! empty($result)) {
